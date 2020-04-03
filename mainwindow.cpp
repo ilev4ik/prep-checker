@@ -80,7 +80,7 @@ void MainWindow::reinitWithErrors()
 
 void MainWindow::initEtalon()
 {
-    for (auto subject : etalonPreps) {
+    for (const auto& subject : etalonPreps) {
         const auto& subjectVec = subject.second;
         std::copy(subjectVec.begin(), subjectVec.end(), std::back_inserter(gamePreps));
     }
@@ -122,6 +122,13 @@ void MainWindow::skipPrep()
     getNextPrep();
 }
 
+void MainWindow::setPrepPic(const QString& picPath)
+{
+    imgLabel->setPixmap(QPixmap(picPath));
+    imgLabel->resize(imgLabel->pixmap()->size());
+    imgLabel->update();
+}
+
 void MainWindow::getNextPrep()
 {
     if (answered() == totalPrepPhotos()) {
@@ -131,9 +138,8 @@ void MainWindow::getNextPrep()
 
     current_pick_it = pickRandomPrep();
     if (current_pick_it != gamePreps.end()) {
-        imgLabel->setPixmap(QPixmap(current_pick_it->picPath));
-        imgLabel->resize(imgLabel->pixmap()->size());
-        imgLabel->update();
+        setPrepPic(current_pick_it->picPath);
+
     }
 }
 
@@ -200,7 +206,7 @@ void MainWindow::resetStats()
 
 void MainWindow::initList()
 {
-    for (const auto prep : etalonPreps) {
+    for (const auto& prep : etalonPreps) {
         const auto& preps = prep.second;
         auto* item = new QListWidgetItem(preps[0].name);
         item->setData(Qt::UserRole + 1, preps[0].subjectId);

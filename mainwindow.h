@@ -47,6 +47,7 @@ private:
     std::vector<Prep>::iterator preLastAnswered();
 
     void reinitWithErrors();
+    void setPrepPic(const QString& picPath);
 
 private:
     Ui::MainWindow *ui;
