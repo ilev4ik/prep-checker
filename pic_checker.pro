@@ -29,8 +29,8 @@ SOURCES += \
 
 HEADERS += \
         mainwindow.h \
-    prep.h
+    prep.h \
+    xml_parser_handler.h
 
 FORMS += \
-        mainwindow.ui \
-    testsviewer.ui
+        mainwindow.ui

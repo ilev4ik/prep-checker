@@ -14,6 +14,7 @@ namespace Ui {
 
 class QLabel;
 class QListWidgetItem;
+class XmlParserHandler;
 
 class MainWindow : public QMainWindow
 {
@@ -61,6 +62,7 @@ private:
 
     //subject id -> pics
     std::map<int, std::vector<Prep>> etalonPreps;
+    XmlParserHandler* xmlHandler;
 };
 
 #endif // MAINWINDOW_H

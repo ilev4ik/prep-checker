@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "xml_parser_handler.h"
+
 #include <algorithm>
 
 #include <QListWidgetItem>
@@ -14,12 +16,16 @@
 #include <QLabel>
 #include <QStandardPaths>
 
+// xml stuff
+#include <QXmlSimpleReader>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , imgLabel(new QLabel)
     , rd()
     , gen(rd())
+    , xmlHandler(new XmlParserHandler(etalonPreps))
 {
     ui->setupUi(this);
     setWindowTitle(tr("Проверка препаратов"));
@@ -48,6 +54,7 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete xmlHandler;
 }
 
 void MainWindow::startNewGame()
@@ -139,7 +146,6 @@ void MainWindow::getNextPrep()
     current_pick_it = pickRandomPrep();
     if (current_pick_it != gamePreps.end()) {
         setPrepPic(current_pick_it->picPath);
-
     }
 }
 
@@ -226,36 +232,13 @@ bool MainWindow::tryReadPreps(QString xmlPath)
         return false;
     }
 
-    const QDir fileDirectory = QFileInfo(xmlPath).absoluteDir();
+    xmlHandler->setFileInfo(xmlPath);
 
-    QXmlStreamReader xmlReader;
-    xmlReader.setDevice(&file);
-    xmlReader.readNext();
+    QXmlSimpleReader xmlReader;
+    QXmlInputSource* source = new QXmlInputSource(&file);
+    xmlReader.setContentHandler(xmlHandler);
+    xmlReader.parse(source);
 
-    int id = 0;
-    int subjectId = 0;
-    while (!xmlReader.atEnd()) {
-        if (xmlReader.isStartElement()) {
-            if (xmlReader.name() == "subject") {
-                QString name = xmlReader.attributes()[0].value().toString();
-                xmlReader.readNext();
-                while (!xmlReader.isEndElement()) {
-                    if (xmlReader.name() == "photo") {
-                        xmlReader.readNext();
-                        const QString photoPath = fileDirectory.absoluteFilePath(xmlReader.text().toString());
-                        etalonPreps[subjectId].push_back(Prep{id, subjectId, name, photoPath});
-                        id++;
-                        xmlReader.readNext();
-                    }
-                    xmlReader.readNext();
-                }
-                subjectId++;
-            }
-        }
-
-        xmlReader.readNext();
-    }
-
-    ui->progress->setRange(0, id);
+    ui->progress->setRange(0, xmlHandler->loadedSubjects());
     return true;
 }
