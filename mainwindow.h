@@ -28,10 +28,11 @@ public:
     int answered() const;
     int totalPrepPhotos() const;
     void showCurrentStats();
+    QString propmtTestLocation();
     ~MainWindow();
 
 private:
-    void readPreps();
+    bool tryReadPreps(QString xmlPath);
     void initList();
     void initEtalon();
     void resetStats();

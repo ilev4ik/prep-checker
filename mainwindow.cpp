@@ -8,9 +8,11 @@
 #include <QListWidget>
 #include <QXmlStreamReader>
 #include <QXmlStreamAttribute>
+#include <QFileDialog>
 #include <QMessageBox>
 #include <QFile>
 #include <QLabel>
+#include <QStandardPaths>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -29,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->a_newGame, &QAction::triggered, this, &MainWindow::startNewGame);
     connect(ui->a_onlyErrors, &QAction::triggered, this, &MainWindow::reinitWithErrors);
     connect(ui->a_currentStats, &QAction::triggered, this, &MainWindow::showCurrentStats);
+    connect(ui->a_loadTest, &QAction::triggered, this, &MainWindow::propmtTestLocation);
     connect(ui->skipBtn, &QPushButton::clicked, this, &MainWindow::skipPrep);
     connect(ui->ansList, &QListWidget::itemDoubleClicked, this, &onItemSelected);
 
@@ -49,14 +52,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::startNewGame()
 {
-    ui->ansList->clear();
-
-    resetStats();
-    readPreps();
-    initList();
-    initEtalon();
-
-    getNextPrep();
+    if (tryReadPreps(propmtTestLocation()))
+    {
+        ui->ansList->clear();
+        resetStats();
+        initList();
+        initEtalon();
+        getNextPrep();
+    }
 }
 
 void MainWindow::reinitWithErrors()
@@ -102,7 +105,16 @@ void MainWindow::showCurrentStats()
     QMessageBox::information(this, tr("Статистика"),
                           tr("Верных ответов: %1\nОшибок: %2\nВ меню можно перезапустить тест только для ошибок!")
                           .arg(correct()).arg(errors())
-                          );
+                             );
+}
+
+QString MainWindow::propmtTestLocation()
+{
+    auto standardPaths = QStandardPaths::standardLocations(QStandardPaths::DocumentsLocation);
+    auto path = QFileDialog::getOpenFileName(this, tr("Выбор файла теста"),
+                                              standardPaths.isEmpty() ? "" : standardPaths[0],
+                                              tr("XML files (*.xml)"));
+    return path;
 }
 
 void MainWindow::skipPrep()
@@ -198,17 +210,17 @@ void MainWindow::initList()
     //ui->ansList->sortItems();
 }
 
-void MainWindow::readPreps()
+bool MainWindow::tryReadPreps(QString xmlPath)
 {
     etalonPreps.clear();
 
-    // TODO: define path in runtime
-    static const QString xmlPath = "C:/Users/Levon/Documents/pic_checker/preps.xml";
     QFile file(xmlPath);
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         QMessageBox::critical(this, tr("Ошибка"), tr("Не удалось открыть xml-файл %1").arg(xmlPath), QMessageBox::Ok);
-        return;
+        return false;
     }
+
+    const QDir fileDirectory = QFileInfo(xmlPath).absoluteDir();
 
     QXmlStreamReader xmlReader;
     xmlReader.setDevice(&file);
@@ -224,8 +236,8 @@ void MainWindow::readPreps()
                 while (!xmlReader.isEndElement()) {
                     if (xmlReader.name() == "photo") {
                         xmlReader.readNext();
-                        QString path = xmlReader.text().toString();
-                        etalonPreps[subjectId].push_back(Prep{id, subjectId, name, path});
+                        const QString photoPath = fileDirectory.absoluteFilePath(xmlReader.text().toString());
+                        etalonPreps[subjectId].push_back(Prep{id, subjectId, name, photoPath});
                         id++;
                         xmlReader.readNext();
                     }
@@ -239,4 +251,5 @@ void MainWindow::readPreps()
     }
 
     ui->progress->setRange(0, id);
+    return true;
 }

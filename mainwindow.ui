@@ -155,8 +155,19 @@
     </property>
     <addaction name="a_currentStats"/>
    </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>Тесты</string>
+    </property>
+    <addaction name="a_lastTests"/>
+    <addaction name="separator"/>
+    <addaction name="a_createTest"/>
+    <addaction name="a_loadTest"/>
+    <addaction name="a_viewTests"/>
+   </widget>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
   </widget>
   <action name="a_newGame">
    <property name="text">
@@ -176,6 +187,26 @@
   <action name="a_currentStats">
    <property name="text">
     <string>Текущая статистика</string>
+   </property>
+  </action>
+  <action name="a_lastTests">
+   <property name="text">
+    <string>Последние</string>
+   </property>
+  </action>
+  <action name="a_createTest">
+   <property name="text">
+    <string>Создать</string>
+   </property>
+  </action>
+  <action name="a_loadTest">
+   <property name="text">
+    <string>Загрузить</string>
+   </property>
+  </action>
+  <action name="a_viewTests">
+   <property name="text">
+    <string>Редактировать...</string>
    </property>
   </action>
  </widget>
