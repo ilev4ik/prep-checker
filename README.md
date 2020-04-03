@@ -1,3 +1,3 @@
-[ ] upgrade xml reading w\ QXmlSimpleReader & Handlers
-[ ] make a simple .xsd & validate input sources w\ it
-[ ] make test construscot w\ drag & drop feature
+[ ] upgrade xml reading with QXmlSimpleReader & Handlers  
+[ ] make a simple .xsd & validate input sources with it  
+[ ] make test construscot with drag & drop feature
