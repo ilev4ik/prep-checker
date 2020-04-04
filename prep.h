@@ -10,7 +10,7 @@ struct Prep
     }
 
     int id;
-    int subjectId;
+    int objectId;
     QString name;
     QString picPath;
 };

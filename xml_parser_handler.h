@@ -19,6 +19,14 @@ class XmlParserHandler : public QXmlDefaultHandler
 public:
     XmlParserHandler(PrepsType& preps) : etalonPreps(preps) {}
 
+    QString titleName() const
+    {
+        auto title = QString("%1.%2 by %3 (%4)")
+                .arg(subject).arg(theme)
+                .arg(author).arg(email);
+        return title;
+    }
+
     void setFileInfo(const QString& xmlPath)
     {
         xmlDir = QFileInfo(xmlPath).absoluteDir();
@@ -32,16 +40,32 @@ public:
 protected:
     virtual bool startElement(const QString& namespaceURI, const QString& localName, const QString& qName, const QXmlAttributes& atts) override
     {
-        if (localName == "subject")
+        if (localName == "test")
         {
-            subjectId++;
-            subjectName = atts.value("name");
+            subject = atts.value("subject");
+            theme = atts.value("theme");
         }
-        else if (localName == "photo")
+        if (inSources && localName == "object")
+        {
+            objectId++;
+            objectName = atts.value("name");
+        }
+        else if (inSources && localName == "photo")
         {
             prepId++;
         }
+        else if (localName == "author")
+        {
+            inSources = false;
+            inAuthor = true;
+        }
+        else if (localName == "sources")
+        {
+            inAuthor = false;
+            inSources = true;
+        }
 
+        currentTag = localName;
         return QXmlDefaultHandler::startElement(namespaceURI, localName, qName, atts);
     }
 
@@ -50,8 +74,19 @@ protected:
         const auto& rawString = ch.trimmed();
         if (!rawString.isEmpty())
         {
-            const auto& photoPath = xmlDir.absoluteFilePath(ch);
-            etalonPreps[subjectId].push_back({prepId, subjectId, subjectName, photoPath});
+            if (inSources)
+            {
+                const auto& photoPath = xmlDir.absoluteFilePath(ch);
+                etalonPreps[objectId].push_back({prepId, objectId, objectName, photoPath});
+            }
+            else if (inAuthor && currentTag == "name")
+            {
+                author = rawString;
+            }
+            else if (inAuthor && currentTag == "email")
+            {
+                email = rawString;
+            }
         }
         return QXmlDefaultHandler::characters(ch);
     }
@@ -60,9 +95,18 @@ private:
     PrepsType& etalonPreps;
     QDir xmlDir;
 
-    QString subjectName;
+    QString currentTag;
+    QString objectName;
     int prepId = 0;
-    int subjectId = 0;
+    int objectId = 0;
+
+    bool inSources = false;
+    bool inAuthor = false;
+
+    QString author;
+    QString email;
+    QString subject;
+    QString theme;
 };
 
 #endif // XML_PARSER_HANDLER_H

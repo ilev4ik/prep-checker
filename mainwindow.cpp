@@ -120,7 +120,7 @@ void MainWindow::initEtalon()
 void MainWindow::onItemSelected(QListWidgetItem* selected)
 {
     int subjectId = selected->data(Qt::UserRole + 1).toInt();
-    if (subjectId == current_pick_it->subjectId) {
+    if (subjectId == current_pick_it->objectId) {
         markCorrect();
     } else {
         markError(*current_pick_it);
@@ -239,7 +239,7 @@ void MainWindow::initList()
     for (const auto& prep : etalonPreps) {
         const auto& preps = prep.second;
         auto* item = new QListWidgetItem(preps[0].name);
-        item->setData(Qt::UserRole + 1, preps[0].subjectId);
+        item->setData(Qt::UserRole + 1, preps[0].objectId);
         ui->ansList->addItem(item);
     }
 
@@ -275,6 +275,7 @@ bool MainWindow::tryReadPreps(const QString& xmlPath)
     xmlReader.setContentHandler(xmlHandler);
     xmlReader.parse(&source);
 
+    setWindowTitle(xmlHandler->titleName());
     ui->progress->setRange(0, xmlHandler->loadedPreps());
     return true;
 }

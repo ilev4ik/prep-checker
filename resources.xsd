@@ -1,24 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:simpleType name="SubjectNameType">
+	<xs:simpleType name="StringAttrType">
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="50"/>
 		</xs:restriction>
 	</xs:simpleType>
 	
-	<xs:complexType name="SubjectType">
+	<xs:simpleType name="emailAddress"> 
+		<xs:restriction base="xs:string"> 
+			<xs:pattern value="[^@]+@[^\.]+\..+"/> 
+		</xs:restriction> 
+	</xs:simpleType> 
+	
+	<xs:complexType name="ObjectType">
 		<xs:sequence>
 			<xs:element name="photo" type="xs:anyURI" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute type="SubjectNameType" name="name" use="required"/>
+		<xs:attribute type="StringAttrType" name="name" use="required"/>
 	</xs:complexType>
 	
-	<xs:complexType name="ResourcesType">
+	<xs:complexType name="AuthorType">
 		<xs:sequence>
-			<xs:element name="subject" type="SubjectType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="email" type="emailAddress" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:element name="resources" type="ResourcesType"/>
+	<xs:complexType name="SourcesType">
+		<xs:sequence>
+			<xs:element name="object" type="ObjectType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TestType">
+		<xs:sequence>
+			<xs:element name="author" type="AuthorType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sources" type="SourcesType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute type="StringAttrType" name="subject" use="required"/>
+		<xs:attribute type="StringAttrType" name="theme" use="required"/>
+	</xs:complexType>
+	
+	<xs:element name="test" type="TestType"/>
 	
 </xs:schema>

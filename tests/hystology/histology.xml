@@ -1,169 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources>
-	<subject name="Спинномозговой узел">
-		<photo>imgs/spinnomozgovoi_uzel_1.jpg</photo>
-	</subject>
-	<subject name="Спинной мозг">
-		<photo>imgs/spinnoi_mozg_1.jpg</photo>
-	</subject>
-	<subject name="Задняя стенка глаза">
-		<photo>imgs/zadnyaya_stenka_glaza_1.jpg</photo>
-	</subject>
-	<subject name="Роговица">
-		<photo>imgs/rogovica_1.jpg</photo>
-	</subject>
-	<subject name="Микроциркулярное русло">	
-		<photo>imgs/microcirc_ruslo_1.jpg</photo>
-		<photo>imgs/microcirc_ruslo_2.jpg</photo>
-	</subject>
-	<subject name="Артерия мышечного типа">	
-		<photo>imgs/arteria_myshechnogo_tipa_1.jpg</photo>
-		<photo>imgs/arteria_myshechnogo_tipa_2.jpg</photo>
-	</subject>
-	<subject name="Вена мышечного типа">
-		<photo>imgs/vena_myshechnogo_tipa_1.jpg</photo>
-		<photo>imgs/vena_myshechnogo_tipa_2.jpg</photo>
-	</subject>
-	<subject name="Аорта">	
-		<photo>imgs/arteria_elast_tipa_1.jpg</photo>
-		<photo>imgs/arteria_elast_tipa_2.jpg</photo>
-	</subject>
-	<subject name="Сердце">
-		<photo>imgs/serdce_1.jpg</photo>
-		<photo>imgs/serdce_2.jpg</photo>
-		<photo>imgs/serdce_3.jpg</photo>
-	</subject>
-	<subject name="Тимус">
-		<photo>imgs/timus_1.jpg</photo>
-		<photo>imgs/timus_2.jpg</photo>
-	</subject>
-	<subject name="Селезёнка">
-		<photo>imgs/selezyonka_1.jpg</photo>
-		<photo>imgs/selezyonka_2.jpg</photo>
-	</subject>
-	<subject name="Лимфатический узел">
-		<photo>imgs/limf_uzel_1.jpg</photo>
-		<photo>imgs/limf_uzel_2.jpg</photo>
-		<photo>imgs/limf_uzel_3.jpg</photo>
-		<photo>imgs/limf_uzel_4.jpg</photo>
-	</subject>
-	<subject name="Гипофиз">
-		<photo>imgs/gipofiz_1.jpg</photo>
-		<photo>imgs/gipofiz_2.jpg</photo>
-	</subject>
-	<subject name="Щитовидная железа">
-		<photo>imgs/shitovidka_1.jpg</photo>
-		<photo>imgs/shitovidka_2.jpg</photo>
-	</subject>
-	<subject name="Надпочечник">
-		<photo>imgs/nadpochechnik_1.jpg</photo>
-		<photo>imgs/nadpochechnik_2.jpg</photo>
-	</subject>
-	<subject name="Трахея">
-		<photo>imgs/traheya_1.jpg</photo>
-	</subject>
-	<subject name="Лёгкое">
-		<photo>imgs/legkoe_1.jpg</photo>
-		<photo>imgs/legkoe_2.jpg</photo>
-	</subject>
-	<subject name="Толстая кожа">
-		<photo>imgs/tolstaya_kozha_1.jpg</photo>
-	</subject>
-	<subject name="Тонкая кожа">
-		<photo>imgs/tonkaya_kozha_1.jpg</photo>
-	</subject>
-	<subject name="Губа">
-		<photo>imgs/guba_1.jpg</photo>
-		<photo>imgs/guba_2.jpg</photo>
-		<photo>imgs/guba_3.jpg</photo>
-		<photo>imgs/guba_4.jpg</photo>
-		<photo>imgs/guba_5.jpg</photo>
-	</subject>
-	<subject name="Листовидные сосчки языка">
-		<photo>imgs/listovidniye_sosochki_yazika_1.jpg</photo>
-		<photo>imgs/listovidniye_sosochki_yazika_2.jpg</photo>
-	</subject>
-	<subject name="Нитиевидные сосочки языка">
-		<photo>imgs/nitievidniye_sosochki_yazika_1.jpg</photo>
-	</subject>
-	<subject name="Твёрдое нёбо">
-		<photo>imgs/tverdoye_nebo_1.jpg</photo>
-		<photo>imgs/tverdoye_nebo_2.jpg</photo>
-		<photo>imgs/tverdoye_nebo_3.jpg</photo>
-		<photo>imgs/tverdoye_nebo_4.jpg</photo>
-	</subject>
-	<subject name="Щека">
-		<photo>imgs/sheka_1.jpg</photo>
-	</subject>
-	<subject name="Нёбная миндалина">
-		<photo>imgs/nebnaya_mindalina_1.jpg</photo>
-	</subject>
-	<subject name="Околоушная слюнная железа">
-		<photo>imgs/okoloushanaya_slunnaya_zheleza_1.jpg</photo>
-		<photo>imgs/okoloushanaya_slunnaya_zheleza_2.jpg</photo>
-	</subject>
-	<subject name="Подчелюстная слюнная железа">
-		<photo>imgs/podchelustnaya_slunnaya_zheleza_1.jpg</photo>
-		<photo>imgs/podchelustnaya_slunnaya_zheleza_2.jpg</photo>
-	</subject>
-	<subject name="Шлиф зуба">
-		<photo>imgs/shlif_zuba_1.jpg</photo>
-	</subject>
-	<subject name="Срез зуба">
-		<photo>imgs/srez_zuba_1.jpg</photo>
-		<photo>imgs/srez_zuba_2.jpg</photo>
-		<photo>imgs/srez_zuba_3.jpg</photo>
-		<photo>imgs/srez_zuba_4.jpg</photo>
-	</subject>
-	<subject name="Развитие зуба. Дифференцировка зубного зачатка">
-		<photo>imgs/razvitie_zuba_diff_zachatka_1.jpg</photo>
-	</subject>
-	<subject name="Развитие зуба. Гистогенез">
-		<photo>imgs/razvitie_zuba_gistogenez_1.jpg</photo>
-	</subject>
-	<subject name="Пищевод">
-		<photo>imgs/pishevod_1.jpg</photo>
-		<photo>imgs/pishevod_2.jpg</photo>
-	</subject>
-	<subject name="Дно желудка">
-		<photo>imgs/dno_zheludka_1.jpg</photo>
-		<photo>imgs/dno_zheludka_2.jpg</photo>
-		<photo>imgs/dno_zheludka_3.jpg</photo>
-	</subject>
-	<subject name="Двеннадцатиперстная кишка">
-		<photo>imgs/dven_perstn_kishka_1.jpg</photo>
-	</subject>
-	<subject name="Тонкая кишка">
-		<photo>imgs/tonkaya_kishka_1.jpg</photo>
-	</subject>
-	<subject name="Толстая кишка">
-		<photo>imgs/tolstaya_kishka_1.jpg</photo>
-	</subject>
-	<subject name="Аппендикс">
-		<photo>imgs/appendix_1.jpg</photo>
-	</subject>
-	<subject name="Печень">
-		<photo>imgs/pechen_1.jpg</photo>
-		<photo>imgs/pechen_2.jpg</photo>
-	</subject>
-	<subject name="Поджелудочная железа">
-		<photo>imgs/podzhel_zheleza_1.jpg</photo>
-	</subject>
-	<subject name="Почка">
-		<photo>imgs/pochka_1.jpg</photo>
-	</subject>
-	<subject name="Мочевой пузырь">
-		<photo>imgs/moch_puzir_1.jpg</photo>
-		<photo>imgs/moch_puzir_2.jpg</photo>
-	</subject>
-	<subject name="Семенник (Яичко)">
-		<photo>imgs/semennik_1.jpg</photo>
-	</subject>	
-	<subject name="Яичник">
-		<photo>imgs/yaichnik_1.jpg</photo>
-	</subject>	
-	<subject name="Матка">
-		<photo>imgs/matka_1.jpg</photo>
-		<photo>imgs/matka_2.jpg</photo>
-	</subject>	
-</resources>
+<test subject="Гистология" theme="Микропрепараты">
+	<author>
+		<name>Levon</name>
+		<email>ilev4ik@gmail.com</email>
+	</author>
+	<sources>
+		<object name="Спинномозговой узел">
+			<photo>imgs/spinnomozgovoi_uzel_1.jpg</photo>
+		</object>
+		<object name="Спинной мозг">
+			<photo>imgs/spinnoi_mozg_1.jpg</photo>
+		</object>
+		<object name="Задняя стенка глаза">
+			<photo>imgs/zadnyaya_stenka_glaza_1.jpg</photo>
+		</object>
+		<object name="Роговица">
+			<photo>imgs/rogovica_1.jpg</photo>
+		</object>
+		<object name="Микроциркулярное русло">	
+			<photo>imgs/microcirc_ruslo_1.jpg</photo>
+			<photo>imgs/microcirc_ruslo_2.jpg</photo>
+		</object>
+		<object name="Артерия мышечного типа">	
+			<photo>imgs/arteria_myshechnogo_tipa_1.jpg</photo>
+			<photo>imgs/arteria_myshechnogo_tipa_2.jpg</photo>
+		</object>
+		<object name="Вена мышечного типа">
+			<photo>imgs/vena_myshechnogo_tipa_1.jpg</photo>
+			<photo>imgs/vena_myshechnogo_tipa_2.jpg</photo>
+		</object>
+		<object name="Аорта">	
+			<photo>imgs/arteria_elast_tipa_1.jpg</photo>
+			<photo>imgs/arteria_elast_tipa_2.jpg</photo>
+		</object>
+		<object name="Сердце">
+			<photo>imgs/serdce_1.jpg</photo>
+			<photo>imgs/serdce_2.jpg</photo>
+			<photo>imgs/serdce_3.jpg</photo>
+		</object>
+		<object name="Тимус">
+			<photo>imgs/timus_1.jpg</photo>
+			<photo>imgs/timus_2.jpg</photo>
+		</object>
+		<object name="Селезёнка">
+			<photo>imgs/selezyonka_1.jpg</photo>
+			<photo>imgs/selezyonka_2.jpg</photo>
+		</object>
+		<object name="Лимфатический узел">
+			<photo>imgs/limf_uzel_1.jpg</photo>
+			<photo>imgs/limf_uzel_2.jpg</photo>
+			<photo>imgs/limf_uzel_3.jpg</photo>
+			<photo>imgs/limf_uzel_4.jpg</photo>
+		</object>
+		<object name="Гипофиз">
+			<photo>imgs/gipofiz_1.jpg</photo>
+			<photo>imgs/gipofiz_2.jpg</photo>
+		</object>
+		<object name="Щитовидная железа">
+			<photo>imgs/shitovidka_1.jpg</photo>
+			<photo>imgs/shitovidka_2.jpg</photo>
+		</object>
+		<object name="Надпочечник">
+			<photo>imgs/nadpochechnik_1.jpg</photo>
+			<photo>imgs/nadpochechnik_2.jpg</photo>
+		</object>
+		<object name="Трахея">
+			<photo>imgs/traheya_1.jpg</photo>
+		</object>
+		<object name="Лёгкое">
+			<photo>imgs/legkoe_1.jpg</photo>
+			<photo>imgs/legkoe_2.jpg</photo>
+		</object>
+		<object name="Толстая кожа">
+			<photo>imgs/tolstaya_kozha_1.jpg</photo>
+		</object>
+		<object name="Тонкая кожа">
+			<photo>imgs/tonkaya_kozha_1.jpg</photo>
+		</object>
+		<object name="Губа">
+			<photo>imgs/guba_1.jpg</photo>
+			<photo>imgs/guba_2.jpg</photo>
+			<photo>imgs/guba_3.jpg</photo>
+			<photo>imgs/guba_4.jpg</photo>
+			<photo>imgs/guba_5.jpg</photo>
+		</object>
+		<object name="Листовидные сосчки языка">
+			<photo>imgs/listovidniye_sosochki_yazika_1.jpg</photo>
+			<photo>imgs/listovidniye_sosochki_yazika_2.jpg</photo>
+		</object>
+		<object name="Нитиевидные сосочки языка">
+			<photo>imgs/nitievidniye_sosochki_yazika_1.jpg</photo>
+		</object>
+		<object name="Твёрдое нёбо">
+			<photo>imgs/tverdoye_nebo_1.jpg</photo>
+			<photo>imgs/tverdoye_nebo_2.jpg</photo>
+			<photo>imgs/tverdoye_nebo_3.jpg</photo>
+			<photo>imgs/tverdoye_nebo_4.jpg</photo>
+		</object>
+		<object name="Щека">
+			<photo>imgs/sheka_1.jpg</photo>
+		</object>
+		<object name="Нёбная миндалина">
+			<photo>imgs/nebnaya_mindalina_1.jpg</photo>
+		</object>
+		<object name="Околоушная слюнная железа">
+			<photo>imgs/okoloushanaya_slunnaya_zheleza_1.jpg</photo>
+			<photo>imgs/okoloushanaya_slunnaya_zheleza_2.jpg</photo>
+		</object>
+		<object name="Подчелюстная слюнная железа">
+			<photo>imgs/podchelustnaya_slunnaya_zheleza_1.jpg</photo>
+			<photo>imgs/podchelustnaya_slunnaya_zheleza_2.jpg</photo>
+		</object>
+		<object name="Шлиф зуба">
+			<photo>imgs/shlif_zuba_1.jpg</photo>
+		</object>
+		<object name="Срез зуба">
+			<photo>imgs/srez_zuba_1.jpg</photo>
+			<photo>imgs/srez_zuba_2.jpg</photo>
+			<photo>imgs/srez_zuba_3.jpg</photo>
+			<photo>imgs/srez_zuba_4.jpg</photo>
+		</object>
+		<object name="Развитие зуба. Дифференцировка зубного зачатка">
+			<photo>imgs/razvitie_zuba_diff_zachatka_1.jpg</photo>
+		</object>
+		<object name="Развитие зуба. Гистогенез">
+			<photo>imgs/razvitie_zuba_gistogenez_1.jpg</photo>
+		</object>
+		<object name="Пищевод">
+			<photo>imgs/pishevod_1.jpg</photo>
+			<photo>imgs/pishevod_2.jpg</photo>
+		</object>
+		<object name="Дно желудка">
+			<photo>imgs/dno_zheludka_1.jpg</photo>
+			<photo>imgs/dno_zheludka_2.jpg</photo>
+			<photo>imgs/dno_zheludka_3.jpg</photo>
+		</object>
+		<object name="Двеннадцатиперстная кишка">
+			<photo>imgs/dven_perstn_kishka_1.jpg</photo>
+		</object>
+		<object name="Тонкая кишка">
+			<photo>imgs/tonkaya_kishka_1.jpg</photo>
+		</object>
+		<object name="Толстая кишка">
+			<photo>imgs/tolstaya_kishka_1.jpg</photo>
+		</object>
+		<object name="Аппендикс">
+			<photo>imgs/appendix_1.jpg</photo>
+		</object>
+		<object name="Печень">
+			<photo>imgs/pechen_1.jpg</photo>
+			<photo>imgs/pechen_2.jpg</photo>
+		</object>
+		<object name="Поджелудочная железа">
+			<photo>imgs/podzhel_zheleza_1.jpg</photo>
+		</object>
+		<object name="Почка">
+			<photo>imgs/pochka_1.jpg</photo>
+		</object>
+		<object name="Мочевой пузырь">
+			<photo>imgs/moch_puzir_1.jpg</photo>
+			<photo>imgs/moch_puzir_2.jpg</photo>
+		</object>
+		<object name="Семенник (Яичко)">
+			<photo>imgs/semennik_1.jpg</photo>
+		</object>	
+		<object name="Яичник">
+			<photo>imgs/yaichnik_1.jpg</photo>
+		</object>	
+		<object name="Матка">
+			<photo>imgs/matka_1.jpg</photo>
+			<photo>imgs/matka_2.jpg</photo>
+		</object>
+	</sources>
+</test>
