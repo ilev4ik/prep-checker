@@ -8,9 +8,9 @@
 	
 	<xs:complexType name="SubjectType">
 		<xs:sequence>
-			<xs:element name="photo" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="photo" type="xs:anyURI" minOccurs="1" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute type="SubjectNameType" name="name"/>
+		<xs:attribute type="SubjectNameType" name="name" use="required"/>
 	</xs:complexType>
 	
 	<xs:complexType name="ResourcesType">
