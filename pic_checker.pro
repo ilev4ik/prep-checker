@@ -6,7 +6,7 @@
 
 QT       += core gui xml
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets xmlpatterns
 
 TARGET = pic_checker
 TEMPLATE = app
@@ -30,7 +30,8 @@ SOURCES += \
 HEADERS += \
         mainwindow.h \
     prep.h \
-    xml_parser_handler.h
+    xml_parser_handler.h \
+    xml_schema_validator.h
 
 FORMS += \
         mainwindow.ui

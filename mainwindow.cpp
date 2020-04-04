@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include "xml_parser_handler.h"
+#include "xml_schema_validator.h"
 
 #include <algorithm>
 
@@ -59,7 +60,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::startNewGame()
 {
-    if (tryReadPreps(propmtTestLocation()))
+    if (tryReadPreps(QDir::fromNativeSeparators(propmtTestLocation())))
     {
         ui->ansList->clear();
         resetStats();
@@ -224,20 +225,32 @@ void MainWindow::initList()
 
 bool MainWindow::tryReadPreps(QString xmlPath)
 {
-    etalonPreps.clear();
-
-    QFile file(xmlPath);
-    if (!file.open(QFile::ReadOnly | QFile::Text)) {
-        QMessageBox::critical(this, tr("Ошибка"), tr("Не удалось открыть xml-файл %1").arg(xmlPath), QMessageBox::Ok);
+    QFile xmlFile(xmlPath);
+    if (!xmlFile.open(QFile::ReadOnly | QFile::Text)) {
+        QMessageBox::critical(this, tr("Ошибка"),
+                              tr("Не удалось открыть xml-файл %1").arg(xmlPath),
+                              QMessageBox::Ok);
         return false;
     }
 
-    xmlHandler->setFileInfo(xmlPath);
+    QString errorMsg;
+    if (!XmlSchemaValidator::validate(xmlFile, errorMsg))
+    {
+        QMessageBox::critical(this, tr("Ошибка"),
+                              tr("xml-файл имеет неправильную структуру %1:\n%2").arg(xmlPath).arg(errorMsg),
+                              QMessageBox::Ok);
+        return false;
+    }
 
+    xmlFile.seek(0);
+
+    // etalonPreps here to be read
+    etalonPreps.clear();
     QXmlSimpleReader xmlReader;
-    QXmlInputSource* source = new QXmlInputSource(&file);
+    xmlHandler->setFileInfo(xmlPath);
+    QXmlInputSource source(&xmlFile);
     xmlReader.setContentHandler(xmlHandler);
-    xmlReader.parse(source);
+    xmlReader.parse(&source);
 
     ui->progress->setRange(0, xmlHandler->loadedSubjects());
     return true;
