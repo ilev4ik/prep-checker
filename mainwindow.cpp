@@ -39,6 +39,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->a_onlyErrors, &QAction::triggered, this, &MainWindow::reinitWithErrors);
     connect(ui->a_currentStats, &QAction::triggered, this, &MainWindow::showCurrentStats);
     connect(ui->a_loadTest, &QAction::triggered, this, &MainWindow::loadTest);
+    connect(ui->a_viewTests, &QAction::triggered, this, &MainWindow::viewTests);
+    connect(ui->a_createTest, &QAction::triggered, this, &MainWindow::createTest);
+    connect(ui->a_lastTests, &QAction::triggered, this, &MainWindow::showLastTestsSubMenu);
     connect(ui->skipBtn, &QPushButton::clicked, this, &MainWindow::skipPrep);
     connect(ui->ansList, &QListWidget::itemDoubleClicked, this, &onItemSelected);
 
@@ -75,6 +78,21 @@ void MainWindow::loadTest()
     }
 }
 
+void MainWindow::createTest()
+{
+    // todo
+}
+
+void MainWindow::viewTests()
+{
+    // todo
+}
+
+void MainWindow::showLastTestsSubMenu()
+{
+    // todo
+}
+
 void MainWindow::reinitWithErrors()
 {
     if (errors() == 0) {
@@ -83,10 +101,10 @@ void MainWindow::reinitWithErrors()
         return;
     }
 
-    auto errorVecTemp = errorsVec;
+    auto&& errorVecTemp = std::move(errorsVec);
     resetStats();
 
-    gamePreps = errorVecTemp;
+    gamePreps.swap(errorVecTemp);
     ui->progress->setMaximum(gamePreps.size());
     getNextPrep();
 }

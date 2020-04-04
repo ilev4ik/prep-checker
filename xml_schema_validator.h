@@ -60,7 +60,7 @@ class XmlSchemaValidator
 public:
     static bool validate(QFile& xmlFile, QString& errorMsg)
     {
-        const QString xsdPath = R"(C:\Users\Levon\Documents\pic_checker\resources.xsd)";
+        static const QString xsdPath = R"(C:\Users\Levon\Documents\pic_checker\resources.xsd)";
         QFile xsdFile(QDir::fromNativeSeparators(xsdPath));
         if (!xsdFile.open(QIODevice::ReadOnly))
         {

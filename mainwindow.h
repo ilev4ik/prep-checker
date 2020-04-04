@@ -24,17 +24,23 @@ public:
     explicit MainWindow(QWidget *parent = 0);
 
     void startNewGame();
+    void showCurrentStats();
     void loadTest();
+
+    void createTest();
+    void viewTests();
+    void showLastTestsSubMenu();
+
     int correct() const;
     int errors() const;
     int answered() const;
     int totalPrepPhotos() const;
-    void showCurrentStats();
-    QString propmtTestLocation();
+
     ~MainWindow();
 
 private:
     bool tryReadPreps(const QString& xmlPath);
+    QString propmtTestLocation();
     void initList();
     void initEtalon();
     void resetStats();
