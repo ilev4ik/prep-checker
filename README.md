@@ -5,4 +5,10 @@ If you're a student trying to learn picture <-> name relation this is for you. T
 1. [x] upgrade xml reading with QXmlSimpleReader & Handlers  
 2. [x] make a simple .xsd & validate input sources with it  
 3. [ ] make a list of existent tests (sqlite or flat file)  
-4. [ ] make test construscot with drag & drop feature
+4. [ ] make test constructor with drag & drop feature
+5. [ ] make it distributable
+	- [ ] migrate to cmake build
+	- [ ] light unit tests coverage
+	- [ ] build & test continiously @travisCI
+	- [ ] deploy @github
+	
