@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     , xmlHandler(new XmlParserHandler(etalonPreps))
 {
     ui->setupUi(this);
-    setWindowTitle(tr("Проверка препаратов"));
+    setWindowTitle(tr("Тестирование"));
     ui->centralWidget->setLayout(ui->verticalLayout);
     ui->horizontalLayout->setStretch(0, 4);
     ui->horizontalLayout->setStretch(1, 2);
@@ -243,7 +243,7 @@ void MainWindow::initList()
         ui->ansList->addItem(item);
     }
 
-    //ui->ansList->sortItems();
+    ui->ansList->sortItems();
 }
 
 bool MainWindow::tryReadPreps(const QString& xmlPath)
