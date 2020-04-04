@@ -24,7 +24,7 @@ public:
         xmlDir = QFileInfo(xmlPath).absoluteDir();
     }
 
-    int loadedSubjects() const
+    int loadedPreps() const
     {
         return prepId;
     }

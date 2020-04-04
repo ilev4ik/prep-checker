@@ -24,6 +24,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
 
     void startNewGame();
+    void loadTest();
     int correct() const;
     int errors() const;
     int answered() const;
@@ -33,7 +34,7 @@ public:
     ~MainWindow();
 
 private:
-    bool tryReadPreps(QString xmlPath);
+    bool tryReadPreps(const QString& xmlPath);
     void initList();
     void initEtalon();
     void resetStats();

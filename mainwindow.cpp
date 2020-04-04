@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->a_newGame, &QAction::triggered, this, &MainWindow::startNewGame);
     connect(ui->a_onlyErrors, &QAction::triggered, this, &MainWindow::reinitWithErrors);
     connect(ui->a_currentStats, &QAction::triggered, this, &MainWindow::showCurrentStats);
-    connect(ui->a_loadTest, &QAction::triggered, this, &MainWindow::propmtTestLocation);
+    connect(ui->a_loadTest, &QAction::triggered, this, &MainWindow::loadTest);
     connect(ui->skipBtn, &QPushButton::clicked, this, &MainWindow::skipPrep);
     connect(ui->ansList, &QListWidget::itemDoubleClicked, this, &onItemSelected);
 
@@ -60,13 +60,18 @@ MainWindow::~MainWindow()
 
 void MainWindow::startNewGame()
 {
+    ui->ansList->clear();
+    resetStats();
+    initList();
+    initEtalon();
+    getNextPrep();
+}
+
+void MainWindow::loadTest()
+{
     if (tryReadPreps(QDir::fromNativeSeparators(propmtTestLocation())))
     {
-        ui->ansList->clear();
-        resetStats();
-        initList();
-        initEtalon();
-        getNextPrep();
+        startNewGame();
     }
 }
 
@@ -223,7 +228,7 @@ void MainWindow::initList()
     //ui->ansList->sortItems();
 }
 
-bool MainWindow::tryReadPreps(QString xmlPath)
+bool MainWindow::tryReadPreps(const QString& xmlPath)
 {
     QFile xmlFile(xmlPath);
     if (!xmlFile.open(QFile::ReadOnly | QFile::Text)) {
@@ -252,6 +257,6 @@ bool MainWindow::tryReadPreps(QString xmlPath)
     xmlReader.setContentHandler(xmlHandler);
     xmlReader.parse(&source);
 
-    ui->progress->setRange(0, xmlHandler->loadedSubjects());
+    ui->progress->setRange(0, xmlHandler->loadedPreps());
     return true;
 }
