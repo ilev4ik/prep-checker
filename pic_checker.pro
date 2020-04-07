@@ -25,13 +25,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    testswindow.cpp \
+    testviewerwindow.cpp
 
 HEADERS += \
         mainwindow.h \
     prep.h \
     xml_parser_handler.h \
-    xml_schema_validator.h
+    xml_schema_validator.h \
+    testswindow.h \
+    testviewerwindow.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    testswindow.ui \
+    testviewerwindow.ui
