@@ -7,9 +7,11 @@
 	<sources>
 		<object name="Спинномозговой узел">
 			<photo>imgs/spinnomozgovoi_uzel_1.jpg</photo>
+			<description>Sample description</description>
 		</object>
 		<object name="Спинной мозг">
 			<photo>imgs/spinnoi_mozg_1.jpg</photo>
+			<!-- it can be absent also -->
 		</object>
 		<object name="Задняя стенка глаза">
 			<photo>imgs/zadnyaya_stenka_glaza_1.jpg</photo>
@@ -20,6 +22,7 @@
 		<object name="Микроциркулярное русло">	
 			<photo>imgs/microcirc_ruslo_1.jpg</photo>
 			<photo>imgs/microcirc_ruslo_2.jpg</photo>
+			<description>Sample description for few photo object</description>
 		</object>
 		<object name="Артерия мышечного типа">	
 			<photo>imgs/arteria_myshechnogo_tipa_1.jpg</photo>

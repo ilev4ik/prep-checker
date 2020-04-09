@@ -87,6 +87,10 @@ protected:
             {
                 email = rawString;
             }
+            else if (currentTag == "description")
+            {
+                decription = rawString;
+            }
         }
         return QXmlDefaultHandler::characters(ch);
     }
@@ -107,6 +111,7 @@ private:
     QString email;
     QString subject;
     QString theme;
+    QString decription;
 };
 
 #endif // XML_PARSER_HANDLER_H

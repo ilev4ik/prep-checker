@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "tests_window.h"
+#include "test_viewer_window.h"
 
 #include "xml_parser_handler.h"
 #include "xml_schema_validator.h"
@@ -72,7 +74,8 @@ void MainWindow::startNewGame()
 
 void MainWindow::loadTest()
 {
-    if (tryReadPreps(QDir::fromNativeSeparators(propmtTestLocation())))
+    const QString testPath = propmtTestLocation();
+    if (!testPath.isEmpty() && tryReadPreps(QDir::fromNativeSeparators(testPath)))
     {
         startNewGame();
     }
@@ -80,12 +83,14 @@ void MainWindow::loadTest()
 
 void MainWindow::createTest()
 {
-    // todo
+    TestViewerWindow testViewer;
+    testViewer.exec();
 }
 
 void MainWindow::viewTests()
 {
-    // todo
+    TestsWindow testsWindow;
+    testsWindow.exec();
 }
 
 void MainWindow::showLastTestsSubMenu()

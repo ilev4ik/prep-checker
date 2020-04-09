@@ -58,7 +58,7 @@ private:
     void setPrepPic(const QString& picPath);
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow* ui;
     QLabel* imgLabel;
     std::random_device rd;
     std::mt19937 gen;
