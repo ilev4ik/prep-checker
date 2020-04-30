@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->a_createTest, &QAction::triggered, this, &MainWindow::createTest);
     connect(ui->a_lastTests, &QAction::triggered, this, &MainWindow::showLastTestsSubMenu);
     connect(ui->skipBtn, &QPushButton::clicked, this, &MainWindow::skipPrep);
-    connect(ui->ansList, &QListWidget::itemDoubleClicked, this, &onItemSelected);
+    connect(ui->ansList, &QListWidget::itemDoubleClicked, this, &MainWindow::onItemSelected);
 
     imgLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
     imgLabel->setScaledContents(true);

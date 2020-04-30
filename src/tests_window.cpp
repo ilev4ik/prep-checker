@@ -6,9 +6,9 @@ TestsWindow::TestsWindow(QWidget* parent)
     , ui(new Ui::TestsWindow)
 {
     ui->setupUi(this);
-    connect(ui->createTestBtn, &QPushButton::clicked, this, TestsWindow::onTestCreateClicked);
-    connect(ui->removeTestBtn, &QPushButton::clicked, this, TestsWindow::onTestRemoveClicked);
-    connect(ui->editTestBtn, &QPushButton::clicked, this, TestsWindow::onTestEditClicked);
+    connect(ui->createTestBtn, &QPushButton::clicked, this, &TestsWindow::onTestCreateClicked);
+    connect(ui->removeTestBtn, &QPushButton::clicked, this, &TestsWindow::onTestRemoveClicked);
+    connect(ui->editTestBtn, &QPushButton::clicked, this, &TestsWindow::onTestEditClicked);
 }
 
 TestsWindow::~TestsWindow()

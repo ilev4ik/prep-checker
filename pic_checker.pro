@@ -24,26 +24,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-    tests_window.cpp \
-    test_viewer_window.cpp \
-    test_meta_window.cpp \
-    object_entry_window.cpp
+    src/main.cpp \
+    src/mainwindow.cpp \
+    src/tests_window.cpp \
+    src/test_viewer_window.cpp \
+    src/test_meta_window.cpp \
+    src/object_entry_window.cpp
 
 HEADERS += \
-        mainwindow.h \
-    prep.h \
-    xml_parser_handler.h \
-    xml_schema_validator.h \
-    test_meta_window.h \
-    tests_window.h \
-    test_viewer_window.h \
-    object_entry_window.h
+    src/mainwindow.h \
+    src/prep.h \
+    src/xml_parser_handler.h \
+    src/xml_schema_validator.h \
+    src/test_meta_window.h \
+    src/tests_window.h \
+    src/test_viewer_window.h \
+    src/object_entry_window.h
 
 FORMS += \
-        mainwindow.ui \
-    test_meta_window.ui \
-    tests_window.ui \
-    test_viewer_window.ui \
-    object_entry_window.ui
+    forms/mainwindow.ui \
+    forms/test_meta_window.ui \
+    forms/tests_window.ui \
+    forms/test_viewer_window.ui \
+    forms/object_entry_window.ui
