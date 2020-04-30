@@ -1,0 +1,6 @@
+build/
+generated/
+x64/
+.vs/
+*.sln
+*.vcxproj*
