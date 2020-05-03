@@ -8,7 +8,7 @@ Each test file should be signed by author and belong to subject/theme pair.
 3. [ ] make a list of existent tests (sqlite or flat file)  
 4. [ ] make test constructor with drag & drop feature
 5. [ ] make it distributable
-	- [ ] migrate to cmake build
+	- [x] migrate to cmake build
 	- [ ] light unit tests coverage
 	- [ ] build & test continiously @travisCI
 	- [ ] deploy @github
