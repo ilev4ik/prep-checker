@@ -1,7 +1,3 @@
 build/
-generated/
-x64/
 logs/
-.vs/
-*.sln
-*.vcxproj*
+.vscode/
